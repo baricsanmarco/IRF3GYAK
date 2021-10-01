@@ -77,5 +77,14 @@ namespace UserMaintenance {
                 return ResourceManager.GetString("FullName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Írás.
+        /// </summary>
+        internal static string SaveFileDialog {
+            get {
+                return ResourceManager.GetString("SaveFileDialog", resourceCulture);
+            }
+        }
     }
 }
