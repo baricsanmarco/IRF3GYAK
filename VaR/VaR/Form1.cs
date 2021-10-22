@@ -12,9 +12,13 @@ namespace VaR
 {
     public partial class Form1 : Form
     {
+        PortfolioEntities context = new PortfolioEntities();
+        List<Tick> Ticks; 
         public Form1()
         {
             InitializeComponent();
+            Ticks = context.Ticks.ToList(); //nem csak másik formátum, hanem másolatot készít az adatokból a lokál memóriában és ott dolgozunk vele, nem az SQL DB-n
+            dataGridView1.DataSource = Ticks;
         }
     }
 }
