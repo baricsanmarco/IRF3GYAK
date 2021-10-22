@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace VaR
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Ticks;
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
+        List<decimal> nyeresegekRendezve;
+
         public Form1()
         {
             InitializeComponent();
@@ -116,6 +119,28 @@ namespace VaR
                 value += (decimal)last.Price * item.Volume;
             }
             return value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = Application.StartupPath; //bin debug mappába kerülök automatikusan, ahova mentem a dolgokat
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+
+            using (var sw = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8))
+            {
+                sw.WriteLine("Időszak;Nyereség");
+                for (int i = 0; i < nyeresegekRendezve.Count(); i++)
+                {
+                    sw.WriteLine(string.Format(
+                        "{0};{1}",
+                        i,
+                        nyeresegekRendezve[i]
+                        ));
+                }
+            }
+
         }
     }
 }
