@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Factory_pattern.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Factory_pattern.Entities
 {
-    public class Ball : Label
+    public class Ball : Toy
     {
-        public Ball()
+      /*  public Ball()  Már benne vannak a Toy osztályban
         {
             AutoSize = false;
             Width = 50;
@@ -21,8 +22,9 @@ namespace Factory_pattern.Entities
         private void Ball_Paint(object sender, PaintEventArgs e) //ha módosul a design, akkor nem kell újrarajzolni
         {
             DrawImage(e.Graphics);
-        }
-        private void DrawImage(Graphics g)
+        }*/
+
+        protected override void DrawImage(Graphics g) //felül kell írni az absztrakt osztályt
         {
             var ecset = new SolidBrush(Color.Blue);
             g.FillEllipse(
@@ -32,9 +34,9 @@ namespace Factory_pattern.Entities
                 Width,
                 Height); //0.0 pontból indul és ugyanolyan széles és magas ellipszis vagyis egy kör
         }
-        public void MoveBall()
+        /*public void MoveBall()
         {
             Left++;
-        }
+        }*/
     }
 }

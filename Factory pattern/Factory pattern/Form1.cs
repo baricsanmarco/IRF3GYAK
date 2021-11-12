@@ -44,7 +44,7 @@ namespace Factory_pattern
 
             foreach (var item in _balls)
             {
-                item.MoveBall(); //hogy ne a form1-nél kelljen módosítani a sebességet
+                item.MoveToy(); //hogy ne a form1-nél kelljen módosítani a sebességet
                 if (item.Left > lastPosition)
                 {
                     lastPosition = item.Left; //melyik a legbaloldalibb item
