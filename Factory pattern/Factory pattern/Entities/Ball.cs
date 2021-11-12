@@ -11,24 +11,28 @@ namespace Factory_pattern.Entities
 {
     public class Ball : Toy
     {
-      /*  public Ball()  Már benne vannak a Toy osztályban
+        /*  public Ball()  Már benne vannak a Toy osztályban
+          {
+              AutoSize = false;
+              Width = 50;
+              Height = Width;
+              Paint += Ball_Paint;
+          }
+
+          private void Ball_Paint(object sender, PaintEventArgs e) //ha módosul a design, akkor nem kell újrarajzolni
+          {
+              DrawImage(e.Graphics);
+          }*/
+        public SolidBrush BallColor { get; set; }
+        public Ball(Color color)
         {
-            AutoSize = false;
-            Width = 50;
-            Height = Width;
-            Paint += Ball_Paint;
+            BallColor = new SolidBrush(color);
         }
-
-        private void Ball_Paint(object sender, PaintEventArgs e) //ha módosul a design, akkor nem kell újrarajzolni
-        {
-            DrawImage(e.Graphics);
-        }*/
-
         protected override void DrawImage(Graphics g) //felül kell írni az absztrakt osztályt
         {
             var ecset = new SolidBrush(Color.Blue);
             g.FillEllipse(
-                ecset,
+                BallColor,
                 0,
                 0,
                 Width,

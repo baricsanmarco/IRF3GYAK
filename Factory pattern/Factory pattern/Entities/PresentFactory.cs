@@ -8,16 +8,13 @@ using System.Threading.Tasks;
 
 namespace Factory_pattern.Entities
 {
-    public class BallFactory : IToyFactory
+    public class PresentFactory : IToyFactory
     {
-        /* public Ball CreateNew() //meghívóm a BallFactory-t és a Ball-t kapom vissza
-         {
-             return new Ball();
-         }*/
-        public Color BallColor { get; set; }
+        public Color BoxColor { get; set; }
+        public Color RibbonColor { get; set; }
         public Toy CreateNew()
         {
-            return new Ball(BallColor);
+            return new Present(BoxColor, RibbonColor);
         }
     }
 }
