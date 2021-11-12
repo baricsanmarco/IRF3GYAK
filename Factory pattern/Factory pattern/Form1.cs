@@ -15,6 +15,7 @@ namespace Factory_pattern
         public Form1()
         {
             InitializeComponent();
+
         }
     }
 }
