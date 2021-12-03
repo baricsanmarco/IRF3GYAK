@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/ExcelExport/ExcelExport/Properties/DataSources
+/IRF_2zh_gyakorlas_LINQ/IRF_2zh_gyakorlas_LINQ
+/IRF_2zh_gyakorlas_LINQ
