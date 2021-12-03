@@ -14,7 +14,7 @@ namespace Mikroszimulacio
 {
     public partial class Form1 : Form
     {
-        Random rng = new Random();
+        Random rng = new Random(1234);
 
         List<Person> Population = null;
         List<BirthProbability> BirthProbabilities = null;
@@ -25,7 +25,7 @@ namespace Mikroszimulacio
         {
             InitializeComponent();
 
-            Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
+            Population = GetPopulation(@"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
@@ -33,7 +33,7 @@ namespace Mikroszimulacio
             {
                 for (int  i = 0;  i < Population.Count;  i++)
                 {
-
+                    SimStep(year, Population[i]);
                 }
 
                 int nbrOfMales = (from x in Population
