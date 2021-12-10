@@ -50,13 +50,14 @@ namespace WorldsHardestGame
             var topPerformers = playerList.Take(playerList.Count() / 2).ToList();
 
             var winners = from p in topPerformers
-                         where !p.IsWinner
+                         where p.IsWinner
                          select p;
 
             if (winners.Count() > 0)
             {
                 winnerBrain = winners.FirstOrDefault().Brain.Clone();
                 gc.GameOver -= Gc_GameOver;
+                btnStart.Visible = true;
                 return;
             }
 
