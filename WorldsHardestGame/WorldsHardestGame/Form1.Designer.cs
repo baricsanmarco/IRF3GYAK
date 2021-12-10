@@ -29,13 +29,34 @@ namespace WorldsHardestGame
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.lblGeneration = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lblGeneration
+            // 
+            this.lblGeneration.AutoSize = true;
+            this.lblGeneration.Location = new System.Drawing.Point(240, 21);
+            this.lblGeneration.Name = "lblGeneration";
+            this.lblGeneration.Size = new System.Drawing.Size(96, 20);
+            this.lblGeneration.TabIndex = 0;
+            this.lblGeneration.Text = "1. generáció";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblGeneration);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblGeneration;
     }
 }
 
