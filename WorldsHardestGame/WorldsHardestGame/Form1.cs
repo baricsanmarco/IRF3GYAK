@@ -52,8 +52,15 @@ namespace WorldsHardestGame
             foreach (var p in topPerformers)
             {
                 var brain = p.Brain.Clone();
-                gc.AddPlayer(brain);
-                gc.AddPlayer(brain.Mutate());
+                if (generation % 3 == 0)
+                    gc.AddPlayer(brain.ExpandBrain(nbrOfStepsIncrement));
+                else
+                    gc.AddPlayer(brain);
+
+                if (generation % 3 == 0)
+                    gc.AddPlayer(brain.ExpandBrain(nbrOfStepsIncrement));
+                else
+                    gc.AddPlayer(brain.Mutate());
 
             }
             gc.Start();
